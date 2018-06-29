@@ -1,10 +1,10 @@
 class Perceptron {
     constructor(numWeights = 2) {
-        this.weights = []
+        this.weights = [];
 
         // Initialize weights randomly
         for(let i = 0; i < numWeights; i++) {
-            this.weights.push(Math.random() * 2 - 1)
+            this.weights.push(Math.random() * 2 - 1);
         }
     }
     
@@ -14,7 +14,7 @@ class Perceptron {
      * @return {number} The converted value.
      */
     activate(value) {
-       return value > 0 ? 1 : -1
+       return value > 0 ? 1 : -1;
     }
 
     /**
@@ -23,11 +23,11 @@ class Perceptron {
      * @return {number} The outputted value of the perceptron.
      */
     guess(inputs) {
-        let sum = 0
+        let sum = 0;
         //Calculate weighted sum of inputs
         this.weights.forEach(
             (weight, index) => sum += inputs[index] * weight
-        )
-        return this.activate(sum)
+        );
+        return this.activate(sum);
     }
 }
