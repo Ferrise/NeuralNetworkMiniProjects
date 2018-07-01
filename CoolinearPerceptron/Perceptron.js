@@ -1,4 +1,4 @@
-class Perceptron {
+var Perceptron = class {
     constructor(numWeights = 2) {
         this.weights = [];
 
