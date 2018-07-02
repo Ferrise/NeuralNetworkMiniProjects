@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 30vw;
+}
+
+div {
+    margin-left: 22%;
+}
+
+button {
+    width: 50px;
+}

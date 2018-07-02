@@ -1,7 +1,7 @@
 var Perceptron = class {
     constructor(numWeights = 2) {
         this.weights = [];
-        this.learningRate = 0.1;
+        this.learningRate = 9.1;
 
         // Initialize weights randomly
         for(let i = 0; i < numWeights; i++) {
@@ -36,9 +36,9 @@ var Perceptron = class {
         const guess = this.guess(inputs);
         const error = target - guess;
 
-        // Adjust weights
+        // Tune weights
         for(let i = 0; i < this.weights.length; i++) {
-            weights[i] += error * inputs[i] * this.learningRate;
+            this.weights[i] += error * inputs[i] * this.learningRate;
         }
     }
 }

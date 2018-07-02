@@ -11,8 +11,6 @@ function f(x) {
 function setup() {
     createCanvas(WIDTH, HEIGHT);
     perceptron = new Perceptron();
-    let inputs = [-0.74, 0.5];
-    let guess = perceptron.guess(inputs);
 
     for(let i = 0; i < 150; i++) {
         points.push(new Point(f));
@@ -21,7 +19,18 @@ function setup() {
 
 function draw() {
     background(255);
-    line(0, 0, WIDTH, HEIGHT)
-    points.forEach((point) => point.show());
+    line(0, 0, WIDTH, HEIGHT);
+
+    points.forEach((point) => {
+        point.show();
+
+        let target = point.label;
+        let inputs = [point.x, point.y];
+
+        perceptron.train(inputs, target);
+        (perceptron.guess(inputs) === target) ? fill(0, 255, 0)
+            : fill(255, 0, 0);
+        ellipse(point.x, point.y, 16, 16);
+    });
 
 }
