@@ -9,7 +9,7 @@ function f(x) {
 
 //PS5 callbacks
 function setup() {
-    createCanvas(640, 640);
+    createCanvas(WIDTH, HEIGHT);
     perceptron = new Perceptron();
     let inputs = [-0.74, 0.5];
     let guess = perceptron.guess(inputs);

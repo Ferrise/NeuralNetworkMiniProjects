@@ -4,7 +4,9 @@ var Point = class {
         this.x = Math.random() * WIDTH;
         this.y = Math.random() * HEIGHT;
 
-        if(Math.abs(lineFunction(this.x) - this.y) <= 16) {
+        this.diameter = 32;
+
+        if(Math.abs(lineFunction(this.x) - this.y) <= this.diameter/2) {
             this.label = 1;
         } else {
             this.label = -1;
@@ -14,6 +16,6 @@ var Point = class {
     show() {
         stroke(0);
         this.label === 1 ? fill(255) : fill(0);
-        ellipse(this.x, this.y, 32, 32)
+        ellipse(this.x, this.y, this.diameter, this.diameter);
     }
 }
