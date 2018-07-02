@@ -27,10 +27,23 @@ function draw() {
         let target = point.label;
         let inputs = [point.x, point.y];
 
-        perceptron.train(inputs, target);
         (perceptron.guess(inputs) === target) ? fill(0, 255, 0)
             : fill(255, 0, 0);
         ellipse(point.x, point.y, 16, 16);
     });
 
+}
+
+function handleTraining(ev) {
+    points.forEach((point) => {
+        let target = point.label;
+        let inputs = [point.x, point.y];
+
+        perceptron.train(inputs, target);
+    });
+}
+
+window.onload = function() {
+    const button = document.querySelector('button');
+    button.addEventListener('click', (ev) => handleTraining(ev));
 }
